@@ -1,13 +1,17 @@
-.setting{
-    text-align: center;
-    border: 1px solid #cccccc;
-    margin: 2rem;
-    header{
-        width: auto;
-        font-size: 1.5rem;
-        font-weight: bolder;
-    }
-    .setting-container{
-        margin: 0.5rem;
-    }
+.setting {
+  text-align: center;
+  // border: 1px solid #cccccc;
+  margin: 2rem;
+  header {
+    width: auto;
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+  .setting-container {
+    margin: 0.5rem;
+  }
+  .form-check-input {
+    display: table-column;
+    margin-left: 8rem;
+  }
 }

@@ -6,19 +6,13 @@
 
 // const sagaMiddleware = createSagaMiddleware();
 
-// export default function configureStore(initialState = {}, history) {
-//     // Create the store with two middlewares
-//     // 1. sagaMiddleware: Makes redux-sagas work
-//     // 2. routerMiddleware: Syncs the location/URL path to the state
-//     const middlewares = [sagaMiddleware, routerMiddleware(history)];
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import reducers from './Store/reducer';
 
-//     const enhancers = [applyMiddleware(...middlewares)];
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-//     const store = createStore(createReducer, fromJS(initialState), enhancers);
-
-//     // Extensions
-//     store.runSaga = sagaMiddleware.run;
-//     store.asyncReducers = {}; // Async reducer registry
-
-//     return store;
-// }
+const store = createStore(
+  reducers, composeEnhancers(applyMiddleware(thunk)),
+);
+export default store;

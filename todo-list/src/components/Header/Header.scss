@@ -1,22 +1,32 @@
 .basic-header {
-    height: 50%;
-    box-shadow: 3px 3px 5px 6px #ccc;
-    position: relative;
+  max-height: 100vh;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  position: relative;
+  text-align: center;
+  a {
     text-align: center;
-    a {
-      text-align: center;
-      i {
-      color: #1256A6;
-      border-radius: 50%;
-      border: 1.5px solid rgba(17,85,163,0.7);
-      padding: 0.5rem;
-      float: left;
-      margin: 1rem;
-      clear: both;
-    }
   }
-    .header-title{
-      padding: 1rem;
-      ;
-    }
+  button{
+    margin-top: 1rem;
+    border-radius: 50%;
+  }
+  // i {
+  //   color: #1256a6;
+  //   border-radius: 50%;
+  //   border: 1.5px solid rgba(17, 85, 163, 0.7);
+  //   padding: 0.5rem;
+  //   float: left;
+  //   margin: 1rem;
+  //   clear: both;
+  // }
+  .header-title {
+    padding: 1rem;
+  }
+}
+.todo-Header {
+  display: inline-block;
+  padding: 1rem;
+}
+.btn-group .btn{
+  border-radius: 10px;
 }
