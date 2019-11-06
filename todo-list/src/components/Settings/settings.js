@@ -1,9 +1,6 @@
 import React from 'react';
 import data from '../../components/todo.json';
 import './settings.scss';
-
-
-
 class Settings extends React.Component {
     state = {
         todos: data,
@@ -35,7 +32,6 @@ class Settings extends React.Component {
                 return todos;
             })
         });
-        console.log("nessma");
 
     }
     render() {

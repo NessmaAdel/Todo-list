@@ -1,17 +1,15 @@
-import React, { Component, useState } from 'react';
-import './addTask.scss';
+import React, { Component } from 'react';
+import './addTodo.scss';
 
-class TodoList extends Component {
+class addTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
       items: [],
     };
   }
-  
-  render() {
-    // const[todos,saveTodo]=useState([]);
 
+  render() {
     return (
       <section className="todoListMain">
         <div className="container">
@@ -29,7 +27,6 @@ class TodoList extends Component {
                     <div className="modal-body">
                       <form onSubmit={(event) => {
                         event.preventDefault();
-                        // saveTodo(value);
                       }}>
                         <input type="text" className="form-control" id="exampleInputname" placeholder="Enter name" />
                         <textarea type="text" className="form-textarea" id="exampleInputname" aria-label="With textarea" placeholder="Enter description" />
@@ -50,4 +47,4 @@ class TodoList extends Component {
     );
   };
 }
-export default TodoList;
+export default addTodo;

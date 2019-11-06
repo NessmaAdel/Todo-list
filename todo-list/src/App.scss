@@ -37,15 +37,32 @@
     .next {
       display: none;
     }
-    .show-task-btn{
+    .show-task-btn {
       border: none;
       background: transparent;
       text-align: left;
-      &:focus,&:hover{
+      &:focus,
+      &:hover {
         border-style: none;
         border: none;
-        outline:none;
+        outline: none;
       }
+    }
+  }
+}
+.showTodo {
+  text-align: left;
+  margin: 2rem;
+  padding: 4rem;
+  background: rgba(0, 0, 0, 0.1);
+  ul li {
+    list-style: none;
+    margin: 1rem;
+    .label {
+      color: #0d72d8;
+      font-size: 1.1rem;
+      font-weight: bolder;
+      margin-right: 1rem;
     }
   }
 }

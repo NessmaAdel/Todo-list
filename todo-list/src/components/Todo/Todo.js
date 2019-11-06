@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
-import data from '../../components/todo.json';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Item from './Item.js';
 
-const Todo = () => (
-    <div className="todo-collection">
-        {data.map(e => (
-            <Link to={`/todo/${e.id}`} >
-                <div key={e.id} className={`todo-item ${e.completed &&'item-completed'}`}>
-                    <Item Id={e.id} {...e} />
-                </div>
-            </Link>
-        ))}
 
-    </div>
+const Todo = ({ id, name, describtion }) => (
+    <Link to={`/view/${id}`}>
+        <div className="item">
+            <h3>{name}</h3>
+            <p>{describtion}</p>
+
+        </div>
+    </Link>
 );
 
 export default Todo;
