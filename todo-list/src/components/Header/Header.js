@@ -26,7 +26,7 @@ class Header extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col col-sm-12 col-md-3">
-                            <Link to="/todos"  >
+                            <Link to="/"  >
                                 <h2 className="header-title">
                                     {i18next.t('headerTitle')}
                         </h2>

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import data from '../../components/todo.json';
+import React from 'react';
 import Todo from './Todo';
 
 class Todos extends React.Component {
     render() {
         const { Items, handleDelete } = this.props
+        console.log("Items", Items.map(item => item));
         return (
             <div className="todo-collection">
                 {Items.map(item => (

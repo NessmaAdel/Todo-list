@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import './addTodo.scss';
 
 class addTodo extends Component {
   render() {
-    const { Item, describtion, handleChange, handleSubmit, history } = this.props
+    const { name, describ, handleChangeName, handleChangeDescribe, handleSubmit } = this.props
     return (
       <section className="todoListMain">
         <div className="container">
@@ -20,15 +22,14 @@ class addTodo extends Component {
                     </div>
                     <div className="modal-body">
                       <form onSubmit={handleSubmit}>
-                        <input type="text" className="form-control" id="exampleInputname" placeholder="Enter name" value={Item.name} onChange={handleChange} />
-                        <textarea type="text" className="form-textarea" id="exampleInputname" aria-label="With textarea" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+                        <input type="text" className="form-control" id="exampleInputname" placeholder="Enter name" value={name} onChange={handleChangeName} />
+                        <textarea type="text" className="form-textarea" id="exampleInputname" aria-label="With textarea" placeholder="Add Description" onChange={handleChangeDescribe} value={describ} />
 
                       </form>
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                       <button type="submit" className="btn btn-primary"
-                        onSubmit={() => history.push('/')}
                         onClick={handleSubmit}>Submit</button>
                     </div>
                   </div>

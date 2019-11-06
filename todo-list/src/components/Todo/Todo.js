@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-
-const Todo = ({ id, name, describtion ,handleDelete}) => {
+const Todo = ({ id, name, describtion, describ, handleDelete }) => {
     return (
         <>
             <Link to={`/view/${id}`}>
                 <div className="item">
                     <h3>{name}</h3>
-                    <p>{describtion}</p>
+                    <p>{describtion ? describtion : describ}</p>
 
                 </div>
             </Link>

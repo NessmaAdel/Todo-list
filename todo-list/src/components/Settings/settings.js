@@ -4,39 +4,16 @@ import './settings.scss';
 import i18next from 'i18next';
 class Settings extends React.Component {
     state = {
-        todos: data,
-        filtered: [],
         checked: false
-    }
-    componentDidMount = () => {
-        this.setState({
-            filtered: this.state.todos
-        });
-    }
-
-    componentWillReceiveProps = (nextProps) => {
-        this.setState({
-            filtered: nextProps.todos
-        });
     }
     handleClick = (id) => {
         this.setState({
             checked: !this.state.checked
         });
     }
-    markComplete = id => {
-        this.setState({
-            todos: this.state.filtered.map(todos => {
-                if (todos.id === id) {
-                    todos.completed = !todos.completed;
-                }
-                return todos;
-            })
-        });
-
-    }
     render() {
-        const { filtered, checked } = this.state;
+        const { checked } = this.state;
+        const { handleSort } = this.props
 
         return (
             <section className="setting">
@@ -88,8 +65,7 @@ class Settings extends React.Component {
                                         </div>
                                         <div className="modal-footer">
                                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" className="btn btn-primary" onClick={this.markComplete}
-                                                todos={filtered}
+                                            <button type="button" className="btn btn-primary" onClick={handleSort}
                                             >{i18next.t('save')}</button>
                                         </div>
                                     </div>

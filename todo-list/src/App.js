@@ -14,13 +14,17 @@ import AddTodo from './components/addTodo/addTodo';
 import data from '../src/components/todo.json';
 import Todos from './components/Todo/Todos';
 import ShowTodo from './components/Todo/showTodo';
-import uuid from 'uuid'
+import uuid from 'uuid';
+
 
 class App extends Component {
   state = {
     Items: data,
     id: uuid(),
-    Item: { name: '', describtion: '', completed: false },
+    name: '',
+    describ: '',
+    completed: false,
+
   }
   componentDidMount() {
     const { setLanguageAction } = this.props;
@@ -44,21 +48,30 @@ class App extends Component {
     if (localStorageLang !== lang.language_code) window.localStorage.setItem('lang', lang.language_code);
     setLanguageAction(lang);
   }
-  handleChange = (e) => {
+  handleChangeName = (e) => {
     this.setState({
-      Item: { name: e.target.value, describtion: e.target.value, }
+      name: e.target.value,
+    });
+  };
+  handleChangeDescribe = (e) => {
+    this.setState({
+      describ: e.target.value,
     });
   };
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.history.push('/');
     const newItem = {
       id: this.state.id,
-      Item: { name: this.state.Item, describtion: this.state.Item, completed: true }
+      name: this.state.name,
+      describ: this.state.describ,
+      completed: true,
     }
-    const updateItem = [...this.state.Items, newItem];
+    const updateItem = [newItem, ...this.state.Items];
     this.setState({
       Items: updateItem,
-      Item: { name: '', describtion: '', completed: false },
+      name: '',
+      describ: '',
       id: uuid()
     });
   }
@@ -69,9 +82,23 @@ class App extends Component {
 
     })
   }
+  handleSort =() =>{
+    const sorting = this.state.Items.sort((a, b) =>{
+      var keyA = a.id,
+          keyB = b.id;
+      // Compare the 2 dates
+      if(keyA < keyB) return -1;
+      if(keyA > keyB) return 1;
+      return 0;
+  });
+  this.setState({
+    Items: sorting,
+
+  })
+  }
   render() {
     const { language } = this.props;
-    const { Item, Items } = this.state;
+    const { name, Items, describ } = this.state;
     return (
       <div className="App">
         <Header />
@@ -81,10 +108,12 @@ class App extends Component {
             <Route path="/todos" exact component={Todos} />
             <Route path="/view/:Id" exact component={ShowTodo} />
           </Switch>
-          <Settings />
+          <Settings handleSort={this.handleSort}/>
           <AddTodo
-            Item={Item}
-            handleChange={this.handleChange}
+            name={name}
+            describ={describ}
+            handleChangeName={this.handleChangeName}
+            handleChangeDescribe={this.handleChangeDescribe}
             handleSubmit={this.handleSubmit} />
         </Router>
       </div>
