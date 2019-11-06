@@ -1,5 +1,4 @@
 import React from 'react';
-import data from '../../components/todo.json';
 import './settings.scss';
 import i18next from 'i18next';
 class Settings extends React.Component {
@@ -31,7 +30,7 @@ class Settings extends React.Component {
                                         </div>
                                         <div className="modal-body">
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" onClick={this.handleClick} />
+                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" onChange={this.handleClick} onClick={handleSort} />
                                                 {checked ? (
                                                     <label className="form-check-label" htmlFor="defaultCheck1">
                                                         <strike>  {i18next.t('sortId')}</strike>
@@ -42,7 +41,7 @@ class Settings extends React.Component {
                                             </div>
                                             <div className="form-check">
                                                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck2"
-                                                    onClick={this.handleClick} />
+                                                   onChange={this.handleClick} onClick={handleSort} />
                                                 {checked ? (
                                                     <label className="form-check-label" htmlFor="defaultCheck1">
                                                         <strike>  {i18next.t('complete')}</strike>
@@ -55,8 +54,6 @@ class Settings extends React.Component {
                                         </div>
                                         <div className="modal-footer">
                                             <button type="button" className="btn btn-secondary" data-dismiss="modal">{i18next.t('close')}</button>
-                                            <button type="button" className="btn btn-primary" onClick={handleSort}
-                                            >{i18next.t('save')}</button>
                                         </div>
                                     </div>
                                 </div>

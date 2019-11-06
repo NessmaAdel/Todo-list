@@ -1,26 +1,11 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import LanguageSwitcher from '../langSwitcher/LangSwitcher';
 import './Header.scss';
-import AddTodo from '../addTodo/addTodo';
 import i18next from '../../i18next/i18next';
 
 class Header extends React.Component {
     render() {
-        const languages = [{
-            "isDefault": false,
-            "isDeleted": false,
-            "language_code": "ar",
-            "language_name": "العربية",
-            "ltr": false
-        }, {
-            "isDefault": true,
-            "isDeleted": false,
-            "language_code": "en",
-            "language_name": "english",
-            "ltr": true
-        }];
         return (
             <header className="basic-header">
                 <div className="container">

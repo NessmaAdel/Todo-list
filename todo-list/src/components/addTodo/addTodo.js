@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router';
 import './addTodo.scss';
 import i18next from 'i18next';
 
