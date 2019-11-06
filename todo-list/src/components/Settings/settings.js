@@ -24,7 +24,7 @@ class Settings extends React.Component {
                                 <div className="modal-dialog" role="document">
                                     <div className="modal-content">
                                         <div className="modal-header">
-                                            <h5 className="modal-title" id="exampleModalLabel">Settings</h5>
+                                            <h5 className="modal-title" id="exampleModalLabel">{i18next.t('modalTitleSetting')}</h5>
                                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -34,9 +34,9 @@ class Settings extends React.Component {
                                                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" onClick={this.handleClick} />
                                                 {checked ? (
                                                     <label className="form-check-label" htmlFor="defaultCheck1">
-                                                        <strike>Sort by name</strike>
+                                                        <strike>  {i18next.t('sortId')}</strike>
                                                     </label>) : (<label className="form-check-label" htmlFor="defaultCheck1">
-                                                        Sort by name
+                                                        {i18next.t('sortId')}
                                                     </label>
                                                     )}
                                             </div>
@@ -45,26 +45,16 @@ class Settings extends React.Component {
                                                     onClick={this.handleClick} />
                                                 {checked ? (
                                                     <label className="form-check-label" htmlFor="defaultCheck1">
-                                                        <strike>Completed</strike>
+                                                        <strike>  {i18next.t('complete')}</strike>
                                                     </label>) : (<label className="form-check-label" htmlFor="defaultCheck1">
-                                                        Completed
-                                                    </label>
-                                                    )}
-                                            </div>
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck3" onClick={this.handleClick} />
-                                                {checked ? (
-                                                    <label className="form-check-label" htmlFor="defaultCheck1">
-                                                        <strike>Store New Draft </strike>
-                                                    </label>) : (<label className="form-check-label" htmlFor="defaultCheck1">
-                                                        Store New Draft
+                                                        {i18next.t('complete')}
                                                     </label>
                                                     )}
                                             </div>
 
                                         </div>
                                         <div className="modal-footer">
-                                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" className="btn btn-secondary" data-dismiss="modal">{i18next.t('close')}</button>
                                             <button type="button" className="btn btn-primary" onClick={handleSort}
                                             >{i18next.t('save')}</button>
                                         </div>

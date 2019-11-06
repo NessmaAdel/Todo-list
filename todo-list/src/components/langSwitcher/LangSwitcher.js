@@ -36,7 +36,7 @@ const LanguageSwitcher = (props) => {
   const langs = window.localStorage.getItem('lang')
   const languageTitle = languages && languages.find(e => langs === e.language_code && e.language_code)
   const ltr = languages && languages.find(e => langs === e.ltr && e.ltr);
-  const languageName = languageTitle.language_name;
+  const languageName = languageTitle && languageTitle.language_name;
   return (
     <section position={directionSwapper('right', ltr)} className={`language-switcher ${!ltr && 'switcher-rtl'}`}>
       <div className="btn-group dropdown">

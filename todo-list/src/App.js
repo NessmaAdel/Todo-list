@@ -14,23 +14,11 @@ import AddTodo from './components/addTodo/addTodo';
 import data from '../src/components/todo.json';
 import Todos from './components/Todo/Todos';
 import ShowTodo from './components/Todo/showTodo';
+import Todo from './components/Todo/Todo';
 import uuid from 'uuid';
+import languages from '../src/languages.json';
 
-const languages = [{
-  "id": 1,
-  "isDefault": false,
-  "isDeleted": false,
-  "language_code": "ar",
-  "language_name": "العربية",
-  "ltr": false
-}, {
-  "id": 2,
-  "isDefault": true,
-  "isDeleted": false,
-  "language_code": "en",
-  "language_name": "english",
-  "ltr": true
-}];
+
 class App extends Component {
   state = {
     Items: data,
@@ -106,7 +94,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path="/" exact render={() => <Todos Items={Items} handleDelete={this.handleDelete} />} />
-            <Route path="/todos" exact component={Todos} />
+            <Route path="/todo" exact component={Todo} />
             <Route path="/view/:Id" exact component={ShowTodo} />
           </Switch>
           <Settings handleSort={this.handleSort} />

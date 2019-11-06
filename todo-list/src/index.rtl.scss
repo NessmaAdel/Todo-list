@@ -1,0 +1,37 @@
+.App[dir="rtl"] {
+  .todo-collection {
+    .todo-item {
+      text-align: right;
+
+      .todo-icon {
+        margin-right: 7rem;
+        margin-left: 0;
+      }
+    }
+  }
+  .showTodo {
+    text-align: right;
+    ul li .label {
+      margin-left: 1rem;
+      margin-right: 0;
+    }
+  }
+  .modal-header {
+    .close {
+      float: left;
+      margin: -1rem -1rem -1rem 1rem;
+    }
+  }
+  .modal-footer > :not(:last-child) {
+    margin-left: 0.25rem;
+  }
+  .form-check {
+    padding-right: 1.25rem;
+    padding-left: 0;
+  }
+  .setting .form-check-input {
+    margin-right: 8rem;
+    margin-left: 0;
+    margin-top: -0.8rem;
+}
+}

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import i18next from '../../i18next/i18next';
+import { directionSwapper } from '../../directionSwapper';
+import languages from '../../languages.json';
+
 const data = [
     {
         "id": 1,
@@ -46,7 +49,8 @@ const data = [
     }
 ]
 const ShowTodo = ({ match: { params: { Id } }, history: { push } }) => {
-
+    const langs = window.localStorage.getItem('lang')
+    const ltr = languages && languages.find(e => langs === e.language_code && e.ltr );
     return (
         <section className="showTodo">
             {data.map(e => (e.id == Id && (
@@ -70,7 +74,7 @@ const ShowTodo = ({ match: { params: { Id } }, history: { push } }) => {
                 </ul>
             )))}
             <Link to="/">
-            <i className="fa fa-chevron-left" aria-hidden="true" onClick={() => push("/Todos")} />
+            <i className={`fa fa-chevron-${directionSwapper('left', ltr)}`} aria-hidden="true" onClick={() => push("/Todos")} />
             </Link>
         </section >
     )

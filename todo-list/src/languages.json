@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "isDefault": false,
+        "isDeleted": false,
+        "language_code": "ar",
+        "language_name": "العربية",
+        "ltr": false
+    },
+    {
+        "id": 2,
+        "isDefault": true,
+        "isDeleted": false,
+        "language_code": "en",
+        "language_name": "english",
+        "ltr": true
+    }
+]
