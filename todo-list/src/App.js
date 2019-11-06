@@ -16,7 +16,21 @@ import Todos from './components/Todo/Todos';
 import ShowTodo from './components/Todo/showTodo';
 import uuid from 'uuid';
 
-
+const languages = [{
+  "id": 1,
+  "isDefault": false,
+  "isDeleted": false,
+  "language_code": "ar",
+  "language_name": "العربية",
+  "ltr": false
+}, {
+  "id": 2,
+  "isDefault": true,
+  "isDeleted": false,
+  "language_code": "en",
+  "language_name": "english",
+  "ltr": true
+}];
 class App extends Component {
   state = {
     Items: data,
@@ -28,21 +42,6 @@ class App extends Component {
   }
   componentDidMount() {
     const { setLanguageAction } = this.props;
-    const languages = [{
-      "id": 1,
-      "isDefault": false,
-      "isDeleted": false,
-      "language_code": "ar",
-      "language_name": "العربية",
-      "ltr": false
-    }, {
-      "id": 2,
-      "isDefault": true,
-      "isDeleted": false,
-      "language_code": "en",
-      "language_name": "english",
-      "ltr": true
-    }];
     const localStorageLang = localStorage.getItem('lang');
     const lang = (localStorageLang ? languages.find(l => l.language_code === localStorageLang) : null) || languages.find(l => l.isDefault);
     if (localStorageLang !== lang.language_code) window.localStorage.setItem('lang', lang.language_code);
@@ -82,25 +81,27 @@ class App extends Component {
 
     })
   }
-  handleSort =() =>{
-    const sorting = this.state.Items.sort((a, b) =>{
+  handleSort = () => {
+    const sorting = this.state.Items.sort((a, b) => {
       var keyA = a.id,
-          keyB = b.id;
+        keyB = b.id;
       // Compare the 2 dates
-      if(keyA < keyB) return -1;
-      if(keyA > keyB) return 1;
+      if (keyA < keyB) return -1;
+      if (keyA > keyB) return 1;
       return 0;
-  });
-  this.setState({
-    Items: sorting,
+    });
+    this.setState({
+      Items: sorting,
 
-  })
+    })
   }
   render() {
     const { language } = this.props;
     const { name, Items, describ } = this.state;
+    const langs = window.localStorage.getItem('lang')
+    const ltr = languages && languages.find(e => langs === e.language_code && e.ltr );
     return (
-      <div className="App">
+      <div className="App" dir={ltr ? 'ltr' : 'rtl'}>
         <Header />
         <Router>
           <Switch>
@@ -108,7 +109,7 @@ class App extends Component {
             <Route path="/todos" exact component={Todos} />
             <Route path="/view/:Id" exact component={ShowTodo} />
           </Switch>
-          <Settings handleSort={this.handleSort}/>
+          <Settings handleSort={this.handleSort} />
           <AddTodo
             name={name}
             describ={describ}
