@@ -2,14 +2,8 @@ import React, { Component } from 'react';
 import './addTodo.scss';
 
 class addTodo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-    };
-  }
-
   render() {
+    const { Item, describtion, handleChange, handleSubmit, history } = this.props
     return (
       <section className="todoListMain">
         <div className="container">
@@ -25,17 +19,17 @@ class addTodo extends Component {
                       </button>
                     </div>
                     <div className="modal-body">
-                      <form onSubmit={(event) => {
-                        event.preventDefault();
-                      }}>
-                        <input type="text" className="form-control" id="exampleInputname" placeholder="Enter name" />
-                        <textarea type="text" className="form-textarea" id="exampleInputname" aria-label="With textarea" placeholder="Enter description" />
+                      <form onSubmit={handleSubmit}>
+                        <input type="text" className="form-control" id="exampleInputname" placeholder="Enter name" value={Item.name} onChange={handleChange} />
+                        <textarea type="text" className="form-textarea" id="exampleInputname" aria-label="With textarea" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
                       </form>
                     </div>
                     <div className="modal-footer">
                       <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" className="btn btn-primary">Submit</button>
+                      <button type="submit" className="btn btn-primary"
+                        onSubmit={() => history.push('/')}
+                        onClick={handleSubmit}>Submit</button>
                     </div>
                   </div>
                 </div>

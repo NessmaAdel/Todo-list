@@ -2,15 +2,20 @@ import React, { useState } from 'react';
 import data from '../../components/todo.json';
 import Todo from './Todo';
 
-const Todos = () => (
-    <div className="todo-collection">
-        {data.map(e => (
-            <div key={e.id} className={`todo-item ${e.completed && 'item-completed'}`}>
-                <Todo Id={e.id} {...e} />
+class Todos extends React.Component {
+    render() {
+        const { Items, handleDelete } = this.props
+        return (
+            <div className="todo-collection">
+                {Items.map(item => (
+                    <div key={item.id} className={`todo-item ${item.completed && 'item-completed'}`}>
+                        <Todo Id={item.id} {...item}
+                            handleDelete={() => handleDelete(item.id)} />
+                    </div>
+                ))}
+
             </div>
-        ))}
-
-    </div>
-);
-
+        );
+    }
+}
 export default Todos;

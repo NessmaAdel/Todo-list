@@ -12,6 +12,7 @@ const en = {
         name: ' Todo Name :',
         describe:'Todo Describtion :',
         complete:'Complete :',
+        save:'Save Changes'
     }
 };
 export default en;

@@ -12,6 +12,7 @@ const ar = {
         name: ' اسم القائمة :',
         describe:'محتوى القائمة :',
         complete:'تم الأكتمال :',
+        save:'احفظ'
     }
 };
 export default ar;

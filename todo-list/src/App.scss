@@ -33,6 +33,17 @@
     }
     .item {
       display: inline-block;
+      position: relative;
+    }
+    .todo-icon {
+      position: absolute;
+      display: inline-block;
+      font-size: x-large;
+      color: red;
+      margin-top: 2rem;
+      margin-left: 7rem;
+     
+  
     }
     .next {
       display: none;

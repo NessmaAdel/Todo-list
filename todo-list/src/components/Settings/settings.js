@@ -1,6 +1,7 @@
 import React from 'react';
 import data from '../../components/todo.json';
 import './settings.scss';
+import i18next from 'i18next';
 class Settings extends React.Component {
     state = {
         todos: data,
@@ -89,7 +90,7 @@ class Settings extends React.Component {
                                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <button type="button" className="btn btn-primary" onClick={this.markComplete}
                                                 todos={filtered}
-                                            >Save changes</button>
+                                            >{i18next.t('save')}</button>
                                         </div>
                                     </div>
                                 </div>
